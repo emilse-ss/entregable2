@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { validateSong } from "../middlewares/validateSong";
+import { validateDurationFormat } from "../middlewares/validateDurationFormat";
 import {
   actualizar,
   buscarPorNombre,
@@ -13,8 +15,8 @@ const router = Router();
 router.get("/search", buscarPorNombre);
 router.get("/album/:albumName", filtrarPorAlbum);
 router.get("/", listar);
-router.post("/", crear);
-router.put("/:id", actualizar);
+router.post("/", validateSong, validateDurationFormat, crear);
+router.put("/:id", validateSong, validateDurationFormat, actualizar);
 router.delete("/:id", eliminar);
 
 export default router;
