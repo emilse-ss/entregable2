@@ -271,4 +271,19 @@ El formato definido por el `errorHandler` para un error no reconocido es:
 {"error":"Error interno del servidor"}
 ```
 
-[PEGAR LOG AQUÍ]
+```text
+HTTP/1.1 500 Internal Server Error
+
+[2026-10-30T23:41:22.565Z] GET /debug/error
+Error: Fallo simulado para probar el errorHandler
+    at <anonymous> (...Entregable2_API\src\app.ts:16:9)
+    at Layer.handleRequest (...Entregable2_API\node_modules\router\lib\layer.js:152:17)
+    at next (...Entregable2_API\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (...Entregable2_API\node_modules\router\lib\route.js:117:3)
+    at handle (...Entregable2_API\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (...Entregable2_API\node_modules\router\lib\layer.js:152:17)
+    at ...Entregable2_API\node_modules\router\index.js:295:15
+    at processParams (...Entregable2_API\node_modules\router\index.js:582:12)
+    at next (...Entregable2_API\node_modules\router\index.js:291:5)
+    at requestLogger (...Entregable2_API\src\middlewares\requestLogger.ts:5:3)
+```
