@@ -209,7 +209,12 @@ express.json() → requestLogger → /songs → ruta raíz → notFound → erro
 La terminal ejecutada con `npm run dev` debe mostrar líneas equivalentes a esta salida real después de cada petición:
 
 ```text
-[PEGAR LOG AQUÍ]
+[2026-10-30T23:13:28.716Z] GET /songs
+[2026-10-30T23:13:28.758Z] GET /songs/search?name=special
+[2026-10-30T23:13:28.804Z] GET /songs/album/Feel%20Special
+[2026-10-30T23:13:28.994Z] POST /songs
+[2026-10-30T23:13:34.555Z] DELETE /songs/2
+[2026-10-30T23:13:34.674Z] GET /songs/search?name=inexistente
 ```
 
 ### Detención por validateSong
