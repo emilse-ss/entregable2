@@ -1,8 +1,17 @@
 import { Router } from "express";
-import { actualizar, crear, eliminar, listar } from "../controllers/songs.controller";
+import {
+  actualizar,
+  buscarPorNombre,
+  crear,
+  eliminar,
+  filtrarPorAlbum,
+  listar
+} from "../controllers/songs.controller";
 
 const router = Router();
 
+router.get("/search", buscarPorNombre);
+router.get("/album/:albumName", filtrarPorAlbum);
 router.get("/", listar);
 router.post("/", crear);
 router.put("/:id", actualizar);
